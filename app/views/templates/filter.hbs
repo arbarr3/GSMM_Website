@@ -1,0 +1,15 @@
+<h3>Filter By:</h3>
+{{#each filters}}
+	<label>{{name}}</label><input type="checkbox" name="filter" value="{{id}}" /><br>
+{{/each}}
+<h3>Sort By:</h3>
+{{#each filters}}
+	<label>{{name}}</label>
+	<select>
+		<option value="az">A-Z</option>
+		<option value="za">Z-A</option>
+	{{#each sortables}}
+		<option value="{{id}}">{{name}}</option>
+	{{/each}}
+	</select>
+{{/each}}

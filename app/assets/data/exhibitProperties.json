@@ -1,0 +1,13 @@
+{
+	"properties": {
+		"missiles": {
+			"valueType": "item"
+			},
+		"events": {
+				"valueType": "item"
+			},
+		"reports": {
+			"valueType": "item"
+			}
+	}
+}

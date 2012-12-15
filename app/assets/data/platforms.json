@@ -1,0 +1,42 @@
+{
+  "missionNames": ["msn1","msn2","msn3","msn4","msn5","msn6"],
+  "descriptions": {
+	"msn1": {
+		"acronym": "msn1",
+		"msnHeader": "Mission 1",
+		"msnInfo": "Sed eget quam non turpis pellentesque ornare ut et turpis. Nullam et justo justo, nec ultricies nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum lobortis vulputate condimentum. Nunc pulvinar laoreet sagittis. Ut eget massa et elit posuere lacinia. Sed mattis libero et neque mattis elementum vel a nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mattis scelerisque hendrerit",
+		"overlayImg": "http://placehold.it/640x280&text=msn1"
+	},
+	"msn2": {
+		"acronym": "msn2",
+		"msnHeader": "Mission 2",
+		"msnInfo": "Sed lobortis justo porttitor nulla vehicula at mollis massa pharetra. Quisque varius feugiat massa, nec sodales urna sagittis eu. Integer dolor nunc, cursus consectetur elementum et, gravida eu quam. Quisque dapibus, lacus ac tincidunt vehicula, nisl tortor blandit felis, eget accumsan turpis augue et erat. Mauris et metus ligula, at iaculis neque. Ut at lacus erat. Curabitur sit amet aliquam massa. Suspendisse porta tempor orci, quis molestie felis cursus a. Donec fringilla lacinia lacus, et tempor ante sodales vel.",
+		"overlayImg": "http://placehold.it/640x280&text=msn2"
+	},
+	"msn3": {
+		"acronym": "msn3",
+		"msnHeader": "Mission 3",
+		"msnInfo": "Vivamus massa sem, imperdiet semper malesuada ac, lobortis sed eros. Duis non massa tellus, sed condimentum risus. Proin blandit iaculis nulla, vel placerat magna dignissim vel. In adipiscing augue eu orci dapibus imperdiet. Donec lacinia sollicitudin pulvinar. Aenean placerat sapien ac felis viverra rhoncus. Aenean nec mi a sem malesuada convallis mollis in mauris. Phasellus viverra pulvinar tortor in blandit. Vivamus tortor diam, facilisis nec commodo sed, adipiscing id massa. Suspendisse a arcu augue, at malesuada enim. Donec sit amet est odio, ac iaculis velit.",
+		"overlayImg": "http://placehold.it/640x280&text=msn3"
+	},
+	"msn4": {
+		"acronym": "msn4",
+		"msnHeader": "Mission 4",
+		"msnInfo": "Proin sollicitudin laoreet lacinia. Aenean pellentesque turpis sit amet risus feugiat tempus vitae venenatis tellus. Donec justo velit, laoreet eget consectetur sit amet, feugiat eget dolor. Aliquam aliquet mollis orci a fringilla. Duis mattis aliquet est ut pellentesque. Ut nec elit eros. Morbi sodales eros at odio laoreet quis bibendum ipsum hendrerit. Quisque nec quam in orci egestas mattis in eu purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus dolor erat, sagittis ac tempor placerat, tempus scelerisque sapien. Pellentesque lacinia pharetra ligula, in placerat mauris interdum eget.",
+		"overlayImg": "http://placehold.it/640x280&text=msn4"
+	},
+	"msn5": {
+		"acronym": "msn5",
+		"msnHeader": "Mission 5",
+		"msnInfo": "Fusce ut justo non tortor auctor molestie. Fusce ac semper nibh. Sed non luctus nisi. Aenean dolor massa, convallis at consectetur pellentesque, auctor et sapien. Pellentesque mollis pretium hendrerit. Pellentesque rutrum arcu at felis luctus feugiat. Phasellus et interdum quam.",
+		"overlayImg": "http://placehold.it/640x280&text=msn5"
+	},
+	"msn6": {
+		"acronym": "msn6",
+		"msnHeader": "Mission 6",
+		"msnInfo": "Duis non dui sapien, et tincidunt tortor. In hac habitasse platea dictumst. Donec est elit, mollis ut euismod vel, aliquam ac metus. Ut et diam turpis, sit amet ornare justo. Praesent elementum magna in dolor ultricies vitae luctus lacus cursus. Donec lobortis, mauris id tempor congue, quam tortor consequat leo, ac dignissim mauris arcu in lacus. Quisque vel faucibus sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque vehicula sagittis nisi in sollicitudin. Nulla a metus non sapien scelerisque elementum. Donec sollicitudin aliquam orci. Sed tincidunt dolor sit amet tellus fermentum id mollis augue lobortis. Nulla luctus euismod ipsum, ac semper est posuere sit amet. In non libero eros, quis elementum velit.",
+		"overlayImg": "http://placehold.it/640x280&text=msn6"
+
+		}
+	}
+}

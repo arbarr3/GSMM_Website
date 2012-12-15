@@ -1,0 +1,44 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<head>
+	<title>GSMM Listings</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/stylesheets/app.css">
+	<script>
+		window.brunch = window.brunch || {};
+		window.brunch['auto-reload'] = {enabled: true};
+	</script>	
+	<script src="/javascripts/vendor.js"></script>
+	<script src="/javascripts/app.js"></script>
+	<script>require('scripts/listings');</script>
+</head>
+	<body>
+		<div class="classifBanner" id="topBanner"></div>
+		<div id="nasicPlaceHolder">
+			<img src="images/NASIC+Placeholder+Banner.gif">
+		</div>
+		<section id="main">
+			<header>
+				<div id="topBar">
+					<h3>GSMM MMDM<h3>
+					<input id="searchField" type="text" name="input" autocomplete="off">
+				</div>
+			</header>
+			
+			<nav>
+				<a id="ten" href="#">10</a>|<a id="fifty" href="#">50</a>|<a id="hundred" href="#">100</a>
+				<br>
+				<a id="last" href="#">Last 10</a>|<a id="next" href="#">Next 10</a>
+			</nav>
+			<section id="advertListings"></section>
+			<br style="clear: both;">
+			<section id="filter"></section>
+			<div id="info-div"></div>
+		</section>
+		<footer id="appFooter"></footer>
+		<div class="classifBanner" id="bottomBanner"></div>
+	</body>
+</html>

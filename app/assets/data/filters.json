@@ -1,0 +1,40 @@
+{
+	"filters": [
+		{
+			"name": "Missiles",
+			"id": "missile",
+			"sortables": [
+				{
+					"name": "Missile Type",
+					"id": "missileType"
+				},
+				{
+					"name": "Country",
+					"id": "country"
+				}
+			]
+
+			
+		},
+		{
+			"name":	"Events",
+			"id": "event",
+			"sortables": [
+				{
+					"name": "",
+					"id": ""
+				}
+			] 
+		},
+		{
+			"name":	"Reports",
+			"id": "report",
+			"sortables": [
+				{
+					"name": "Report Type",
+					"id": "reportType"
+				}
+			] 
+		}
+	]
+}

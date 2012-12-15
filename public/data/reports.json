@@ -1,0 +1,91 @@
+[
+	{
+		"type": "report",
+		"label": "Report1",
+		"id": "r001",
+
+		"thumb": "images/140x140.gif",
+		"reportType": "ER",
+		"execSum": "This is the main report for Event1.  It has two sub-reports, Report2 and Report3.",
+		"link": "",
+		"parent": [
+			"e001"
+		],
+		"children": [
+			"r002",
+			"r003"
+		]
+	},
+	{
+		"type": "report",
+		"label": "Report2",
+		"id": "r002",
+
+		"thumb": "images/140x140.gif",
+		"reportType": "Sub Report",
+		"execSum": "This is a sub-report of Event1.  It has no reports under it.",
+		"link": "",
+		"parent": [
+			"r001"
+		],
+		"children": []
+	},
+		{
+		"type": "report",
+		"label": "Report3",
+		"id": "r003",
+
+		"thumb": "images/140x140.gif",
+		"reportType": "Sub Report",
+		"execSum": "This is a sub-report of Event1.  It has no reports under it..",
+		"link": "",
+		"parent": [
+			"r001"
+		],
+		"children": []
+	},
+	{
+		"type": "report",
+		"label": "Report4",
+		"id": "r004",
+
+		"thumb": "images/140x140.gif",
+		"reportType": "ER",
+		"execSum": "This is the main report for Event2.  It has one sub-report, Report5.",
+		"link": "",
+		"parent": [
+			"e002"
+		],
+		"children": [
+			"r005"
+		]
+	},
+	{
+		"type": "report",
+		"label": "Report5",
+		"id": "r005",
+
+		"thumb": "images/140x140.gif",
+		"reportType": "Sub Report",
+		"execSum": "This is a sub-report of Event4.  It has no reports under it.",
+		"link": "",
+		"parent": [
+			"r004"
+		],
+		"children": []
+	},
+		{
+		"type": "report",
+		"label": "Report6",
+		"id": "r006",
+
+		"thumb": "images/140x140.gif",
+		"reportType": "Sub Report",
+		"execSum": "This is the main report for Event3.  It has no reports under it..",
+		"link": "",
+		"parent": [
+			"e003"
+		],
+		"children": []
+	}
+]

@@ -1,0 +1,32 @@
+[
+	{
+		"type": "missile",
+		"label": "Photon Torpedo",
+		"id": "m001",
+		
+		"thumb": "images/140x140.gif",
+		"missileType": "Torpedo",
+		"country": "Degoba",
+		"execSum": "Blown up you will be.",
+		"parent": [],
+		"children": [
+			"e001"
+		]
+	},
+	{
+		"type": "missile",
+		"label": "Jared-12",
+		"id": "m002",
+		
+		"thumb": "images/140x140.gif",
+		"missileType": "ICBM",
+		"country": "Quiznos",
+		"execSum": "The Jared-12 is the most deadly missile in the Quiznos arsenal.  It is six inches long and comes with ham, bacon and mustard.",
+		"parent": [],
+		"children": [
+			"e002",
+			"e003"
+		]
+	}
+
+]
