@@ -22,13 +22,6 @@ sectionData = (numToGet, startPos, data) ->
 	data[startPos..startPos+numToGet-1]
 
 
-compileHandle = (from, to, sendData, how) ->
-	#if how is "html"
-	#	$(to).html(Handlebars.compile($(from).html())(sendData))
-	#else
-	#	$(to).append(Handlebars.compile($(from).html())(sendData))
-
-
 getData = (url) ->
 	rdata = null
 	$.ajax

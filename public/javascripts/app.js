@@ -75,7 +75,7 @@
 })();
 
 window.require.define({"scripts/listings": function(exports, require, module) {
-  var checkSending, compileHandle, getData, sectionData,
+  var checkSending, getData, sectionData,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
@@ -105,8 +105,6 @@ window.require.define({"scripts/listings": function(exports, require, module) {
   sectionData = function(numToGet, startPos, data) {
     return data.slice(startPos, +(startPos + numToGet - 1) + 1 || 9e9);
   };
-
-  compileHandle = function(from, to, sendData, how) {};
 
   getData = function(url) {
     var rdata;
