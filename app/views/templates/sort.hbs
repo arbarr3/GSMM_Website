@@ -1,0 +1,9 @@
+<span>Sort:</span>
+<select id="selectSort">
+	<option value="az">A-Z</option>
+	{{#each filters}}
+		{{#each sortables}}
+			<option class="{{../id}}_sort sortItem" value="{{id}}">{{name}}</option>
+		{{/each}}
+	{{/each}}
+</select>

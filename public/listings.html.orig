@@ -1,0 +1,125 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<head>
+		<title>GSMM Listings</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/stylesheets/app.css">
+
+		<script>
+			window.brunch = window.brunch || {};
+			window.brunch['auto-reload'] = {enabled: true};
+		</script>	
+
+		<script src="/javascripts/vendor.js"></script>
+		<script src="/javascripts/app.js"></script>
+		<script>require('scripts/listings');</script>
+	</head>
+	<body>
+		<script id="classifBanners" type="text/x-handlebars-template">
+			<div class="banner" id="topBanner">{{classification}}</div>
+			<div class="banner" id="bottomBanner">{{classification}}</div>
+		</script>
+
+		<div id="nasicPlaceHolder">
+			<img src="images/NASIC+Placeholder+Banner.gif">
+		</div>
+
+		<section id="main">
+			<h1>The Listings Page</h1>
+
+			<input id="searchField" type="text" name="input" autocomplete="off">
+
+			<a id="ten" href="#">10</a>|<a id="fifty" href="#">50</a>|<a id="hundred" href="#">100</a>
+			<br>
+			<a id="last" href="#">Last 10</a>
+			|
+			<a id="next" href="#">Next 10</a>
+
+			<script id="advert-template" type="text/x-handlebars-template"> 
+				{{#each this}}
+					<article id={{id}} class="advert">	
+						<div>
+							<img src="{{thumb}}" />
+							<h3><strong>Name:</strong>{{label}}</h3>
+							{{#equal type "missile"}}
+								<ul>
+									<strong>Info:</strong>
+									<li>Type: {{missileType}}</li>
+									<li>Country: {{country}}</li>
+								</ul>
+								<p><strong>Executive Summary:</strong>{{execSum}}</p>
+							{{/equal}}
+
+							{{#equal type "event" }}
+								<ul>
+									<strong>Launch:</strong>
+									<li>Lat: {{launch.lat}}</li>
+									<li>Long: {{launch.lon}}</li>
+								</ul>
+								<ul>
+									<strong>Reentry:</strong>
+									<li>Lat: {{reentry.lat}}</li>
+									<li>Long: {{reentry.lon}}</li>
+								</ul>
+							{{/equal}}
+							<br class="clear">
+							{{#equal type "report"}}
+								<p><strong>Report Type:</strong>{{reportType}}</p>
+							{{/equal}}
+							
+							{{#ifBothTrue parent children}}
+								<a id="{{id}}_more" class="info more" href="#">More Info</a>
+								<div id="{{id}}_{{parent}}_parent" class="subC"></div>
+								{{#each children}}
+									<div id="{{../id}}_{{this}}_child" class="subC"></div>
+								{{/each}}
+							{{else}}
+								{{#if parent}}
+									<a id="{{id}}_more" class="info more" href="#">More Info</a>
+									<div id="{{id}}_{{parent}}_parent" class="subC"></div>
+								{{else}}
+									<a id="{{id}}_more" class="info more" href="#">More Info</a>
+									{{#each children}}
+										<div id="{{../id}}_{{this}}_child" class="subC"></div>
+									{{/each}}
+								{{/if}}	
+							{{/ifBothTrue}}
+
+						</div>
+					</article>
+				{{/each}}
+			</script>
+
+<script id="filter-template" type="text/x-handlebars-template">
+	<h3>Filters:</h3>
+	{{#each filters}}
+		<label>{{name}}</label><input type="checkbox" name="filter" value="{{id}}" /><br>
+	{{/each}}
+</script>
+
+
+			<div id="advert-div"></div>
+			<div id="info-div"></div>
+			<div id="filter-div"></div>
+
+
+			<footer>
+				<script id="footer" type="text/x-handlebars-template">
+				{{#each footerItems}}
+					<section>
+						<h3>{{header}}</h3>
+						<ul>
+						{{#each links}}
+							<li><a href="{{url}}">{{text}}</a></li>
+						{{/each}}
+						</ul>
+					</section>
+				{{/each}}
+				</script>
+			</footer>
+		</section>	
+	</body>
+</html>

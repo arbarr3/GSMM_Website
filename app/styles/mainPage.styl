@@ -1,0 +1,181 @@
+defaultSpace = 10px
+bob = #F1EFDA
+color0 = #CCC6AB
+color1 = #EEE6AB
+color2 = #C5BC8E
+color3 = #696758
+color4 = #45484B
+color5 = #36393B
+//mainShadow = 5px 0px 10px color5, -5px 0px 10px color5
+mainShadow = 5px 10px 10px -7px color5, -5px 10px 10px -7px color5
+
+grad(n, n1, n2, n3 , n4)
+	background-image linear-gradient(n, n1 n2, n3 n4)
+	background-image -o-linear-gradient(n, n1 n2, n3 n4)
+	background-image -moz-linear-gradient(n, n1 n2, n3 n4)
+	background-image -webkit-linear-gradient(n, n1 n2, n3 n4)
+	background-image -ms-linear-gradient(n, n1 n2, n3 n4)
+
+border-radius(n...)
+	-webkit-border-radius n
+	-moz-border-radius n
+	border-radius n
+
+box-shadow(n...)
+	-moz-box-shadow n
+	-webkit-box-shadow n
+	box-shadow n
+
+text-shadow(n...)
+	-moz-text-shadow n
+	-webkit-text-shadow n
+	text-shadow n
+
+transition(n...)
+	-webkit-transition n
+  	-moz-transition n
+  	-ms-transition n 
+  	-o-transition n 
+  	transition n
+
+html
+	font-family "helvetica Neue", Helvetica, Arial, sans-serif
+
+body
+	background-color color4
+	text-align center
+
+img
+	display block
+
+h1
+	padding-top 32px
+	margin-top 0
+	text-shadow 5px 5px 5px color3
+
+#main
+	background-color bob
+	width 75%
+	margin auto
+	color color5
+	border-radius 0 0 3px 3px
+	mainShadow = 5px 10px 10px -7px black, -5px 10px 10px -7px black
+	box-shadow mainShadow 
+
+.classifBanner
+	background-color green
+	color white
+	font-weight bold
+	text-align center
+	position fixed
+	width 100%
+
+.listings
+	font-size 20px
+	width 380px
+
+	//box-shadow 0 3px 1px black
+	margin auto
+	margin-bottom defaultSpace
+	borderSize = 1px
+	border-radius 3px
+	a
+		padding 0 10px 0 10px
+		color color5
+		text-decoration none
+		text-shadow 1px 1px 1px color2
+	a:hover
+		border-radius 3px
+		background-color color5
+		grad(bottom, #45484B, 34%, #717A82, 73%)
+		color color1
+		text-shadow none
+
+.buttons
+	padding 0px
+
+.msnButton
+	margin 10px 0 10px 0
+	padding 0 10px 0 10px
+	border-radius 3px
+	//border 1px solid #696758
+
+	list-style none
+	display inline
+	
+	color color5
+	text-shadow 1px 1px 1px color2
+	
+.msnButton:hover
+	background-color color5
+	grad(bottom, #45484B, 34%, #717A82, 73%)
+	color color1
+	text-shadow none
+
+
+
+#mainImage
+	margin auto
+	mainShadow = 5px 0px 10px -7px color5, -5px 0px 10px -7px color5
+	box-shadow mainShadow 
+
+#eventsButton
+	margin-right 0
+#reportsButton
+	margin-left 0
+	margin-right 0
+#missilesButton
+	margin-left 0
+
+#nasicPlaceHolder 
+	background-color black
+	img
+		margin auto
+	
+
+#msnInfo
+	text-align left
+	margin-left 30px
+	margin-right 30px
+	height 265px
+
+
+	h3
+		margin-bottom defaultSpace
+	p 
+		font-family serif
+		margin-top 0
+
+#topBanner
+	top 0
+#bottomBanner	
+	bottom 0
+
+
+#appFooter
+	width 75%
+	margin auto
+	background-color color3
+	text-align left
+	margin-bottom 25px
+	h3
+		margin-bottom 0 
+	section
+		display inline-block
+		padding 0 10px 0px 10px
+	ul
+		margin-top 0 
+		list-style none
+		display inline
+		
+/********************
+* ie styling        *
+*********************/
+.lt-ie9 .classifBanner
+		left 0
+		
+.lt-ie9 footer a:first-child
+			float left
+
+.lt-ie9 .buttons li
+			margin-right 4px

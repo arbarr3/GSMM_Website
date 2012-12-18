@@ -1,0 +1,221 @@
+Handlebars.registerHelper('equal', (lvalue, rvalue, options) ->
+	if arguments.length < 3
+		throw new Error("Handlebars Helper equal needs 2 parameters")
+	if lvalue!=rvalue 
+		return options.inverse(this)
+	else
+		return options.fn(this)
+	)
+
+Handlebars.registerHelper('ifBothTrue', (lvalue, rvalue, options) ->
+	if arguments.length < 3
+		throw new Error("Handlebars Helper ifBothTrue needs 2 parameters")
+	if not lvalue and rvalue
+		return options.inverse(this)
+	else
+		return options.fn(this)
+	)
+
+sectionData = (numToGet, startPos, data) ->
+	data[startPos..startPos+numToGet-1]
+
+
+compileHandle = (from, to, sendData, how) ->
+	if how is "html"
+		$(to).html(Handlebars.compile($(from).html())(sendData))
+	else
+		$(to).append(Handlebars.compile($(from).html())(sendData))
+		
+
+getData = (url) ->
+	rdata = null
+	$.ajax
+		url: url
+		async: false
+		dataType: 'json'
+		success: (jData) ->
+			rdata = jData
+	return rdata
+
+#Takes the values in sending and decides which dataSets to pass back
+checkSending = (sending, dataSets) ->
+	allData = []
+	if "missile" in sending 
+		 $.merge(allData, dataSets.missile)
+	if "event" in sending 
+		$.merge(allData, dataSets.event)
+	if "report" in sending 
+		$.merge(allData, dataSets.report)
+	return allData
+
+
+
+$(document).ready ->
+	TO_DISPLAY = 10
+	advertBegin = 0
+	advertEnd = 0
+	sending = []
+	sending.push(window.location.search.substring(1))
+
+	#Main Page Display
+	msnData = getData('data/msnData.json')
+	compileHandle("#classifBanners", "body", msnData, "append")
+	compileHandle("#footer", "footer", msnData, "html")
+
+	#Getting all of the data into the dataSets js-Obj
+	dataSets = {}
+	dataSets.missile = getData('data/missiles.json')
+	dataSets.event = getData('data/events.json')
+	dataSets.report = getData('data/reports.json')
+	filters = getData('data/filters.json')
+
+	#Retrieving which data to show
+	allData = checkSending(sending, dataSets)
+
+	#Pulling the display window
+	sendData = sectionData(TO_DISPLAY, 0, allData)
+	compileHandle("#advert-template", "#advert-div", sendData, "append")
+	compileHandle("#filter-template", "#filter-div", filters, "html")
+	advertEnd = advertBegin + sendData.length
+	
+	#Setting the check-boxes on load (Given to us by the URL)
+	for i in sending
+		$('#filter-div input[value="'+i+'"]').prop("checked", true)
+
+	#Showing the position in the list at the bottom of the page
+	$("#info-div").html("Showing "+(advertBegin+1)+" to "+advertEnd+" of "+ allData.length)
+
+	$("#searchField").on('keyup', (event) ->
+		regex = new RegExp($("#searchField").val())
+
+		key = "label"
+
+		filteredData = _.filter(allData, (datum) ->
+			datum[key].match(regex)
+		)
+
+		sendData = sectionData(TO_DISPLAY, 0, filteredData)
+		compileHandle("#advert-template", "#advert-div", sendData, "html")
+		advertEnd = advertBegin + sendData.length
+		$("#info-div").html("Showing "+(advertBegin+1)+" to "+advertEnd+" of "+ filteredData.length)
+	)
+
+	$("#next").click( ->
+		if(advertBegin + TO_DISPLAY) < allData.length
+			advertBegin += TO_DISPLAY
+
+		sendData = sectionData(TO_DISPLAY, advertBegin, allData)
+		compileHandle("#advert-template", "#advert-div", sendData, "html")
+		advertEnd = advertBegin + sendData.length
+		$("#info-div").html("Showing "+(advertBegin+1)+" to "+advertEnd+" of "+ allData.length)
+		return false
+	)
+
+	$("#last").click(->
+		if(advertBegin - TO_DISPLAY) > 0
+			advertBegin -= TO_DISPLAY
+		else
+			advertBegin = 0
+		sendData = sectionData(TO_DISPLAY, advertBegin, allData)
+		compileHandle("#advert-template", "#advert-div", sendData, "html")
+		advertEnd = advertBegin + sendData.length
+		$("#info-div").html("Showing "+(advertBegin+1)+" to "+advertEnd+" of "+ allData.length)
+		return false
+	)
+
+	$("#ten").click(->
+		TO_DISPLAY = 10
+		$(this).addClass("selected")
+		$("#fifty").removeClass()
+		$("#hundred").removeClass()
+		$("#last").html("Last 10")
+		$("#next").html("Next 10")
+		return false
+	)
+
+	$("#fifty").click(->
+		TO_DISPLAY = 50
+		$(this).addClass("selected")
+		$("#ten").removeClass()
+		$("#hundred").removeClass()
+		$("#last").html("Last 50")
+		$("#next").html("Next 50")
+		return false
+	)
+
+	$("#hundred").click(->
+		TO_DISPLAY = 100
+		$(this).addClass("selected")
+		$("#ten").removeClass()
+		$("#fifty").removeClass()
+		$("#last").html("Last 100")
+		$("#next").html("Next 100")
+		return false
+	)
+
+	$("#filter-div input").click(->
+		sending = []
+		$("#filter-div input").each(->
+			if this.checked
+				sending.push(this.value)
+		)
+		allData = checkSending(sending, dataSets)
+		sendData = sectionData(TO_DISPLAY, 0, allData)
+		compileHandle("#advert-template", "#advert-div", sendData, "html")
+		advertEnd = advertBegin + sendData.length
+		$("#info-div").html("Showing "+(advertBegin+1)+" to "+advertEnd+" of "+ allData.length)
+	)
+
+	
+	$("div").on("click", "a.info", ->
+		moreOrLess = $(this).html()
+		IDs = this.id.split("_") #IDs[0] is the source element, IDs[1] is the action
+		subs = []
+		jQObjs = $(".subC")
+		subCnum = jQObjs.length
+		
+		for i in [0..subCnum-1]
+			subCDivIds = jQObjs[i].id.split("_")
+			if subCDivIds[0] is IDs[0]
+				subs.push(subCDivIds)
+
+		#console.log subs[0].join("_")
+		#console.log subs[0][1]
+		
+		if moreOrLess is "More Info"
+			found = []
+			for sub in subs
+				for data of dataSets
+					found.push(_.filter(dataSets[data], (datum) -> datum if datum.id is sub[1]))
+				found = _.flatten(found)
+				console.log found
+			###	
+			for obj in found
+				console.log obj
+			compileHandle("#advert-template", "article#"+IDs[0]+" div", found, "append")
+			###
+
+		###			
+			#compileHandle("#advert-template", "article#"+IDs[0]+" div", found, "append")
+		if moreOrLess is "More Info"
+			if $("article#"+IDs[1]).attr("id") is undefined
+				found = []
+				for data of dataSets
+					found.push(_.filter(dataSets[data], (datum) -> datum if datum.id is IDs[1]))
+
+				found = _.flatten(found)
+				compileHandle("#advert-template", "article#"+IDs[0]+" div", found, "append")
+				$("a#"+this.id+".info").html("Less Info").removeClass("more")
+			else
+				$("article#"+IDs[1]).show()
+				$("a#"+this.id+".info").html("Less Info").removeClass("more")
+		else if moreOrLess is "Less Info"
+			$("article#"+IDs[1]).hide()
+			$("a#"+this.id+".info").html("More Info").addClass("more")
+		return false
+		#TODO:
+		#	Change the way you assign IDs to the children so there isn't conflict with existing advertisements
+		###
+
+		return false #Must be here so that the handler isn't called twice (don't ask)
+	)

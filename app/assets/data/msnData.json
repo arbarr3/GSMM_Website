@@ -1,0 +1,26 @@
+{
+	"classification": "UNCLASSIFIED",
+	"pageTitle": "GSMM MMDN",
+	"infoHeader": "Executive Summary",
+	"gsmmInfo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt sollicitudin leo sed egestas. Sed ullamcorper sapien nec purus vestibulum interdum. Curabitur laoreet bibendum urna, vitae tempus ante aliquet eu. Sed aliquet, est in consectetur vulputate, lectus odio tempus metus, porttitor pulvinar est ligula eu massa. Nulla purus augue, iaculis vel posuere ornare, imperdiet vel odio. Morbi at accumsan dui. Quisque sed purus justo. Nullam eget purus at lacus luctus posuere. Donec malesuada elit ut massa consequat id laoreet tortor consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi et vulputate velit. Vivamus auctor purus ut mauris mattis rutrum. Duis mauris nisl, consectetur at eleifend suscipit, viverra sit amet purus. Proin et consequat risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+	"gsmmImage": "http://placehold.it/640x280/ffffff/&text=Mission+Image",
+	"footerItems": [
+		{
+			"header": "Legacy Pages",
+			"links": [
+				{
+					"text": "Link1",
+					"url": "#"
+				},
+				{
+					"text": "Link2",
+					"url": "#"
+				},
+				{
+					"text": "Link3",
+					"url": "#"
+				}
+			]
+		}
+	]
+}

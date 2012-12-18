@@ -1,0 +1,11 @@
+<img id="mainImage" src={{gsmmImage}} alt="Mission Image">
+<ul class="buttons">|
+{{#each platform.missionNames}}
+  <li class="msnButton" id={{this}}>{{this}}</li> | 
+{{/each}}
+</ul>
+<article id="msnInfo">
+  <h3>{{infoHeader}}</h3>
+  <p>{{gsmmInfo}}</p>
+  <br>
+</article>

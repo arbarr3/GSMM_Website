@@ -1,0 +1,148 @@
+color0 = #CCC6AB
+color1 = #EEE6AB
+color2 = #C5BC8E
+color3 = #696758
+color4 = #45484B
+color5 = #36393B
+
+mainShadow = 5px 10px 10px -7px color5, -5px 10px 10px -7px color5
+
+box-shadow(n...)
+	-moz-box-shadow n
+	-webkit-box-shadow n
+	box-shadow n
+
+grad(n, n1, n2, n3 , n4)
+	background-image linear-gradient(n, n1 n2, n3 n4)
+	background-image -o-linear-gradient(n, n1 n2, n3 n4)
+	background-image -moz-linear-gradient(n, n1 n2, n3 n4)
+	background-image -webkit-linear-gradient(n, n1 n2, n3 n4)
+	background-image -ms-linear-gradient(n, n1 n2, n3 n4)
+
+#searchField
+	float left
+	height 15px
+	padding 0
+	margin 8px 10px 0 10px
+#searchField:focus
+	outline none
+
+#topBar
+	background-color color5
+	color color1
+	height 40px
+	text-align left
+
+	h3
+		float left
+		display block
+		color color1
+		padding 0
+		margin 7px 10px 0 20px
+	h3:hover
+		background-color color4
+		grad(bottom, #45484B, 34%, #717A82, 73%)
+		margin 7px 0px 0px 10px
+		padding 0px 10px 0px 10px
+	#filter
+		padding-top 9px
+		float left
+
+
+	.filterItem
+		display inline
+		padding 0px 7px 0 7px
+		input
+			margin-right 5px
+	.filterItem:hover
+		grad(bottom, #45484B, 34%, #717A82, 73%)
+
+	#sort
+		margin-right 20px
+		padding-top 8px
+		float right
+		select
+			height 22px
+		#selectSort
+			font-size 13px
+		.sortItem
+			display none
+
+
+
+section#main
+	mainShadow = 5px 10px 10px -7px black, -5px 10px 10px -7px black
+	box-shadow mainShadow
+
+article.advert
+	clear both
+	text-align left
+	margin auto
+	margin-bottom 15px
+	h1
+		padding-top 0
+		font-size 1.5em
+		text-shadow 0 0 0
+	p 
+		display inline
+	.inner
+		width 95%
+		margin auto	
+		border-top 1px solid black
+		border-left 1px solid black
+		border-right 1px solid black
+		background-color white
+		box-shadow mainShadow 
+
+	.adImg
+		float left
+		width 140px
+	section	
+		border-bottom none
+		ul
+			float left
+			margin-top 0
+			padding-right 10px
+	.info
+		outline 0
+		clear both
+		display block
+		text-align center
+		text-decoration none
+		color black
+
+	.subC
+		width 80%
+		padding 5 15 5 15
+		margin auto
+
+.selected
+	background-color black
+	color white
+
+.clear
+	clear both
+
+
+.down
+	display block
+	margin auto
+	height 2%
+	width 2%
+
+.bspan
+	display block
+	
+
+.bdiv
+	background url("../images/border.gif")
+	width 95%
+	margin auto
+
+.less
+	//width 95%
+	//margin auto
+	border-bottom 1px solid black
+
+.checked
+	grad(bottom, #717A82, 34%, #45484B, 73%)
