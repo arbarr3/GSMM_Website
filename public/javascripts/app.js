@@ -136,7 +136,11 @@ window.require.define({"scripts/listings": function(exports, require, module) {
   };
 
   $(document).ready(function() {
+<<<<<<< HEAD
     var TO_DISPLAY, advertBegin, advertEnd, allData, appFooterTemplate, box, counter, dataSets, eventPartial, filterTemplate, filters, i, listingsTemplate, missilePartial, msnData, reportPartial, sendData, sending, sortTemplate, _i, _len;
+=======
+    var TO_DISPLAY, advertBegin, advertEnd, allData, appFooterTemplate, counter, dataSets, eventPartial, filterTemplate, filters, i, listingsTemplate, missilePartial, msnData, reportPartial, sendData, sending, _i, _len;
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
     TO_DISPLAY = 10;
     advertBegin = 0;
     advertEnd = 0;
@@ -163,6 +167,7 @@ window.require.define({"scripts/listings": function(exports, require, module) {
     $("#advertListings").html(listingsTemplate(sendData));
     filterTemplate = require('views/templates/filter');
     $("#filter").html(filterTemplate(filters));
+<<<<<<< HEAD
     sortTemplate = require('views/templates/sort');
     $("#sort").append(sortTemplate(filters));
     for (_i = 0, _len = sending.length; _i < _len; _i++) {
@@ -172,6 +177,13 @@ window.require.define({"scripts/listings": function(exports, require, module) {
       $("." + sending + "_sort").show();
     }
     advertEnd = advertBegin + sendData.length;
+=======
+    advertEnd = advertBegin + sendData.length;
+    for (_i = 0, _len = sending.length; _i < _len; _i++) {
+      i = sending[_i];
+      $('#filter input[value="' + i + '"]').prop("checked", true);
+    }
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
     $("#info-div").html("Showing " + (advertBegin + 1) + " to " + advertEnd + " of " + allData.length);
     $("#searchField").on('keyup', function(event) {
       var filteredData, key, regex;
@@ -235,15 +247,23 @@ window.require.define({"scripts/listings": function(exports, require, module) {
       $("#next").html("Next 100");
       return false;
     });
+<<<<<<< HEAD
     $(".filterItem input").click(function() {
+=======
+    $("#filter input").click(function() {
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
       advertBegin = 0;
       sending = [];
       $("#filter input").each(function() {
         if (this.checked) {
+<<<<<<< HEAD
           sending.push(this.value);
           return $("." + this.id.split("_")[0] + "_sort").show();
         } else {
           return $("." + this.id.split("_")[0] + "_sort").hide();
+=======
+          return sending.push(this.value);
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
         }
       });
       allData = checkSending(sending, dataSets);
@@ -253,7 +273,11 @@ window.require.define({"scripts/listings": function(exports, require, module) {
       return $("#info-div").html("Showing " + (advertBegin + 1) + " to " + advertEnd + " of " + allData.length);
     });
     counter = 0;
+<<<<<<< HEAD
     $("section").on("click", "a.info", function() {
+=======
+    return $("section").on("click", "a.info", function() {
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
       var IDs, callThem, data, found, insert, j, jQObjs, moreOrLess, sub, subCDivIds, subCnum, subs, _j, _k, _l, _len1, _len2, _len3, _m, _ref;
       callThem = function() {
         $("article#" + IDs[0] + " div.inner").removeClass("less");
@@ -311,9 +335,12 @@ window.require.define({"scripts/listings": function(exports, require, module) {
       }
       return false;
     });
+<<<<<<< HEAD
     return $("#selectSort").change(function() {
       return console.log($("#selectSort option:selected").attr("value"));
     });
+=======
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
   });
   
 }});
@@ -471,6 +498,7 @@ window.require.define({"views/templates/filter": function(exports, require, modu
   function program1(depth0,data) {
     
     var buffer = "", stack1, foundHelper;
+<<<<<<< HEAD
     buffer += "\n	<div class=\"filterItem\"><input type=\"checkbox\" name=\"filter\" id=\"";
     foundHelper = helpers.id;
     if (foundHelper) { stack1 = foundHelper.call(depth0, {hash:{}}); }
@@ -494,6 +522,54 @@ window.require.define({"views/templates/filter": function(exports, require, modu
     stack1 = helpers.each.call(depth0, stack1, {hash:{},inverse:self.noop,fn:self.program(1, program1, data)});
     if(stack1 || stack1 === 0) { buffer += stack1; }
     buffer += "\n";
+=======
+    buffer += "\n	<label>";
+    foundHelper = helpers.name;
+    if (foundHelper) { stack1 = foundHelper.call(depth0, {hash:{}}); }
+    else { stack1 = depth0.name; stack1 = typeof stack1 === functionType ? stack1() : stack1; }
+    buffer += escapeExpression(stack1) + "</label><input type=\"checkbox\" name=\"filter\" value=\"";
+    foundHelper = helpers.id;
+    if (foundHelper) { stack1 = foundHelper.call(depth0, {hash:{}}); }
+    else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1() : stack1; }
+    buffer += escapeExpression(stack1) + "\" /><br>\n";
+    return buffer;}
+
+  function program3(depth0,data) {
+    
+    var buffer = "", stack1, foundHelper;
+    buffer += "\n	<label>";
+    foundHelper = helpers.name;
+    if (foundHelper) { stack1 = foundHelper.call(depth0, {hash:{}}); }
+    else { stack1 = depth0.name; stack1 = typeof stack1 === functionType ? stack1() : stack1; }
+    buffer += escapeExpression(stack1) + "</label>\n	<select>\n		<option value=\"az\">A-Z</option>\n		<option value=\"za\">Z-A</option>\n	";
+    stack1 = depth0.sortables;
+    stack1 = helpers.each.call(depth0, stack1, {hash:{},inverse:self.noop,fn:self.program(4, program4, data)});
+    if(stack1 || stack1 === 0) { buffer += stack1; }
+    buffer += "\n	</select>\n";
+    return buffer;}
+  function program4(depth0,data) {
+    
+    var buffer = "", stack1, foundHelper;
+    buffer += "\n		<option value=\"";
+    foundHelper = helpers.id;
+    if (foundHelper) { stack1 = foundHelper.call(depth0, {hash:{}}); }
+    else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1() : stack1; }
+    buffer += escapeExpression(stack1) + "\">";
+    foundHelper = helpers.name;
+    if (foundHelper) { stack1 = foundHelper.call(depth0, {hash:{}}); }
+    else { stack1 = depth0.name; stack1 = typeof stack1 === functionType ? stack1() : stack1; }
+    buffer += escapeExpression(stack1) + "</option>\n	";
+    return buffer;}
+
+    buffer += "<h3>Filter By:</h3>\n";
+    stack1 = depth0.filters;
+    stack1 = helpers.each.call(depth0, stack1, {hash:{},inverse:self.noop,fn:self.program(1, program1, data)});
+    if(stack1 || stack1 === 0) { buffer += stack1; }
+    buffer += "\n<h3>Sort By:</h3>\n";
+    stack1 = depth0.filters;
+    stack1 = helpers.each.call(depth0, stack1, {hash:{},inverse:self.noop,fn:self.program(3, program3, data)});
+    if(stack1 || stack1 === 0) { buffer += stack1; }
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
     return buffer;});
 }});
 
@@ -703,7 +779,11 @@ window.require.define({"views/templates/report": function(exports, require, modu
     foundHelper = helpers.reportType;
     if (foundHelper) { stack1 = foundHelper.call(depth0, {hash:{}}); }
     else { stack1 = depth0.reportType; stack1 = typeof stack1 === functionType ? stack1() : stack1; }
+<<<<<<< HEAD
     buffer += escapeExpression(stack1) + "</p>\n<br>\n<p><strong>Executive Summary:</strong>";
+=======
+    buffer += escapeExpression(stack1) + "</p>\r\n<br>\r\n<p><strong>Executive Summary:</strong>";
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
     foundHelper = helpers.execSum;
     if (foundHelper) { stack1 = foundHelper.call(depth0, {hash:{}}); }
     else { stack1 = depth0.execSum; stack1 = typeof stack1 === functionType ? stack1() : stack1; }
@@ -711,6 +791,7 @@ window.require.define({"views/templates/report": function(exports, require, modu
     return buffer;});
 }});
 
+<<<<<<< HEAD
 window.require.define({"views/templates/sort": function(exports, require, module) {
   module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
     helpers = helpers || Handlebars.helpers;
@@ -750,3 +831,5 @@ window.require.define({"views/templates/sort": function(exports, require, module
     return buffer;});
 }});
 
+=======
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9

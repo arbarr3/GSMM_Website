@@ -1,3 +1,21 @@
+<<<<<<< HEAD
 {{#each filters}}
 	<div class="filterItem"><input type="checkbox" name="filter" id="{{id}}_box" value="{{id}}" /><label for="{{id}}_box">{{name}}</label></div>
 {{/each}}
+=======
+<h3>Filter By:</h3>
+{{#each filters}}
+	<label>{{name}}</label><input type="checkbox" name="filter" value="{{id}}" /><br>
+{{/each}}
+<h3>Sort By:</h3>
+{{#each filters}}
+	<label>{{name}}</label>
+	<select>
+		<option value="az">A-Z</option>
+		<option value="za">Z-A</option>
+	{{#each sortables}}
+		<option value="{{id}}">{{name}}</option>
+	{{/each}}
+	</select>
+{{/each}}
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9

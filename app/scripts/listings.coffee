@@ -82,6 +82,7 @@ $(document).ready ->
 	#Render filter
 	filterTemplate = require 'views/templates/filter'
 	$("#filter").html(filterTemplate(filters))
+<<<<<<< HEAD
 	
 	#Render Sort Menu
 	sortTemplate = require 'views/templates/sort'
@@ -98,6 +99,15 @@ $(document).ready ->
 
 	#Showing the position in the list at the bottom of the page
 	advertEnd = advertBegin + sendData.length
+=======
+	advertEnd = advertBegin + sendData.length
+
+	#Setting the check-boxes on load (Given to us by the URL)
+	for i in sending
+		$('#filter input[value="'+i+'"]').prop("checked", true)
+
+	#Showing the position in the list at the bottom of the page
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
 	$("#info-div").html("Showing "+(advertBegin+1)+" to "+advertEnd+" of "+ allData.length)
 
 	$("#searchField").on('keyup', (event) ->
@@ -173,15 +183,22 @@ $(document).ready ->
 		return false
 	)
 
+<<<<<<< HEAD
 	$(".filterItem input").click(->
+=======
+	$("#filter input").click(->
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
 		advertBegin = 0
 		sending = []
 		$("#filter input").each(->
 			if this.checked
 				sending.push(this.value)
+<<<<<<< HEAD
 				$("."+this.id.split("_")[0]+"_sort").show()
 			else
 				$("."+this.id.split("_")[0]+"_sort").hide()
+=======
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
 		)
 		allData = checkSending(sending, dataSets)
 		sendData = sectionData(TO_DISPLAY, 0, allData)
@@ -203,7 +220,12 @@ $(document).ready ->
 
 
 		moreOrLess = $(this).html()
+<<<<<<< HEAD
 		IDs = this.id.split("_")
+=======
+		#console.log _.contains($(this).attr('class').split(" "),"down-arrow") #Checking to see if something other than .html can be used to access the down arrow
+		IDs = this.id.split("_") #IDs[0] is the source element, IDs[1] is the action
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
 		subs = []
 		jQObjs = $(".subC")
 		subCnum = jQObjs.length
@@ -245,6 +267,7 @@ $(document).ready ->
 
 			$("a#"+this.id+".info").html("More Info").addClass("more")
 
+<<<<<<< HEAD
 		return false
 	)
 
@@ -254,3 +277,15 @@ $(document).ready ->
 
 	)
 	
+=======
+
+			
+			
+
+
+
+
+		return false #Must be here so that the handler isn't called twice (don't ask)
+	)
+
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9

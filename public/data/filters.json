@@ -21,12 +21,17 @@
 			"id": "event",
 			"sortables": [
 				{
+<<<<<<< HEAD
 					"name": "Launch",
 					"id": "launch"
 				},
 				{
 					"name": "Reentry",
 					"id": "reentry"
+=======
+					"name": "",
+					"id": ""
+>>>>>>> f2829caf6133dcf1d19721d6b8e650c7008928a9
 				}
 			] 
 		},
